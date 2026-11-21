@@ -75,7 +75,7 @@ export CXXFLAGS="\
   -I${src_path}/bin/bundle -I${cxxa1_src_path}/../.. \
   ${lib_path[@]} \
   -Wl,-undefined,dynamic_lookup \
-  $_CXXFLAGS1 $_CXXFLAGS2 $CXXFLAGS1 $CXXFLAGS2"
+  $_CXXFLAGS1 $_CXXFLAGS2"
 
 sign() {
     local script_path ens_d SIGN_OPT1 SIGN_OPT=()

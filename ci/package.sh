@@ -23,6 +23,7 @@ pack() {
             echo "[Error]: The first argument of Setdebinfo does not accept $1 as a parameter" >&2
             return 1
         fi
+        mkdir -p packages/${name}/${jbenv}/DEBIAN
         cp -a packages/${name}.template/DEBIAN.template/control.in packages/${name}/${jbenv}/DEBIAN/ || return 1
         {
             cd packages/${name}/${jbenv}/DEBIAN/
