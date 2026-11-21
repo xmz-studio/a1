@@ -5,9 +5,9 @@ this is the source code repository of a1 and its accessory suite.
 
 # build
 ```bash
-git clone --recursive https://github.com/xmz-team/a1.git
+git clone --recursive https://github.com/xmz-studio/a1.git
 # if you use ssh
-# git clone --recursive git@github.com:xmz-team/a1.git
+# git clone --recursive git@github.com:xmz-studio/a1.git
 cd a1
 SDKROOT="/path/to/YouSDK" ./x build-a1-all build-a1-tool pack-all
 
