@@ -31,7 +31,7 @@ pack() {
             mv control.in control
             echo "Version: ${version}" >> control
             echo "Architecture: ${jbtype}" >> control
-            rm .keep
+            rm -f .keep
         }
     }
     cd "$script_path/../"
