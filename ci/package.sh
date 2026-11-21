@@ -1,4 +1,5 @@
 #package.sh
+set -x
 pack() {
     local script_path="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
     source "${script_path}/env.sh"
@@ -102,4 +103,4 @@ pack() {
 pack_a1() { pack "no-pack-a1gui" "$@"; }
 pack_a1gui() { pack "no-pack-a1" "$@"; }
 pack_all() { pack "all" "$@"; }
-
+set +x
