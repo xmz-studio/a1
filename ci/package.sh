@@ -1,5 +1,4 @@
 #package.sh
-set -x
 pack() {
     local script_path="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
     source "${script_path}/env.sh"

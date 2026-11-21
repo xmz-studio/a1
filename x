@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 #x.sh
 script_path="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
 source ${script_path}/ci/env.sh

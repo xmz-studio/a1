@@ -12,7 +12,7 @@ if [ -z "$jb" ]; then
         if [ -z "$SDKROOT" ]; then
             mkdir -p "$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"/../tmp
             cd "$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"/../tmp
-            wget "https://github.com/theos/sdks/releases/download/master-146e41f/iPhoneOS16.5.sdk.tar.xz"
+            wget -nv "https://github.com/theos/sdks/releases/download/master-146e41f/iPhoneOS16.5.sdk.tar.xz"
             tar xf *.tar.xz
             cd "$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"/..
             SDKROOT="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)/../tmp/iPhoneOS16.5.sdk"
@@ -60,7 +60,7 @@ export CXXFLAGS="\
   -target arm64-apple-ios15 \
   -miphoneos-version-min=15 \
   -isysroot ${SDKROOT} \
-  -std=c++17 -O2 \
+  -std=c++17 -O2 -march=armv8 \
   -framework Foundation -framework Security \
   -F${SDKROOT}/System/Library/PrivateFrameworks \
   -I${SDKROOT}/usr/include \
