@@ -101,8 +101,8 @@ pack() {
 			${project_root}/packages/a1gui/$1/$2/Applications/a1gui.app/
 		cp -r ${project_root}/src/gui/resources/* \
 			${project_root}/packages/a1gui/$1/$2/Applications/a1gui.app/
-		setlocale $1 $2 "zh-CN"
-		setlocale $1 $2 "en-US"
+		setlocale rootless "var/jb" "zh-CN"
+		setlocale roothide "" "en-US"
 		setdebinfo a1gui rootless "iphoneos-arm64"
 		setdebinfo a1gui roothide "iphoneos-arm64e"
 		dpkg-deb -b ${project_root}/packages/a1gui/$1 \
