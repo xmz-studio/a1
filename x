@@ -17,7 +17,7 @@ b_a1() {
         patch -p0 < ${lua_patch_file}
         trap "[ -f ${script_path}/libs/lua/loslib.c.orig ] && rm -f ${script_path}/libs/lua/loslib.c && mv ${script_path}/libs/lua/loslib.c.orig ${script_path}/libs/lua/loslib.c" RETURN
         make clean
-        make CC="$(command -v clang) -target arm64-apple-ios14.0 -miphoneos-version-min=14.0 -isysroot ${SDKROOT} -Wno-unknown-warning-option" a
+        make CC="$(command -v clang) -target arm64-apple-ios14.0 -miphoneos-version-min=14.0 -isysroot ${SDKROOT} -Wno-unknown-warning-option -march=armv8" a
         rm -f ${script_path}/libs/lua/loslib.c && mv ${script_path}/libs/lua/loslib.c.orig ${script_path}/libs/lua/loslib.c
         cd ${script_path}
         clang++ -ObjC++ \
