@@ -105,8 +105,8 @@ pack() {
 			setlocale $1 $2 "zh-CN"
 			setlocale $1 $2 "en-US"
 		elif [ $1 = roothide ] && [ "$2" = "" ]; then
-			setlocal $1 $2 "zh-CN"
-			setlocal $1 $2 "en-US"
+			setlocale $1 $2 "zh-CN"
+			setlocale $1 $2 "en-US"
 		fi
 		setdebinfo a1gui rootless "iphoneos-arm64"
 		setdebinfo a1gui roothide "iphoneos-arm64e"
