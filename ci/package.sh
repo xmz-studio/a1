@@ -79,9 +79,13 @@ pack() {
 		ln -sf bundle ${project_root}/packages/cxxa1/$1/$2/a1/bin/bundle_pid
 		ln -sf bundle ${project_root}/packages/cxxa1/$1/$2/a1/bin/pid_bundle
 		ln -sf flock ${project_root}/packages/cxxa1/$1/$2/a1/bin/flock-ios
-		setdebinfo cxxa1 $1 "iphoneos-arm"
-		setdebinfo cxxa1 $1 "iphoneos-arm64"
-		setdebinfo cxxa1 $1 "iphoneos-arm64e"
+		if [ $1 = rootlful ]; then
+			setdebinfo cxxa1 $1 "iphoneos-arm"
+		elif [ $1 = rootless ]; then
+			setdebinfo cxxa1 $1 "iphoneos-arm64"
+		elif [ $1 = roothide ]; then
+			setdebinfo cxxa1 $1 "iphoneos-arm64e"
+		fi
 		dpkg-deb -b ${project_root}/packages/cxxa1/$1 \
 			${project_root}/packages/cxxa1/cxxa1-${1}.deb
 		dpkg-name ${project_root}/packages/cxxa1/cxxa1-${1}.deb
