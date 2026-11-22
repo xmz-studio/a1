@@ -79,9 +79,9 @@ pack() {
 		ln -sf bundle ${project_root}/packages/cxxa1/$1/$2/a1/bin/bundle_pid
 		ln -sf bundle ${project_root}/packages/cxxa1/$1/$2/a1/bin/pid_bundle
 		ln -sf flock ${project_root}/packages/cxxa1/$1/$2/a1/bin/flock-ios
-		setdebinfo cxxa1 rootful "iphoneos-arm"
-		setdebinfo cxxa1 rootless "iphoneos-arm64"
-		setdebinfo cxxa1 roothide "iphoneos-arm64e"
+		setdebinfo cxxa1 $1 "iphoneos-arm"
+		setdebinfo cxxa1 $1 "iphoneos-arm64"
+		setdebinfo cxxa1 $1 "iphoneos-arm64e"
 		dpkg-deb -b ${project_root}/packages/cxxa1/$1 \
 			${project_root}/packages/cxxa1/cxxa1-${1}.deb
 		dpkg-name ${project_root}/packages/cxxa1/cxxa1-${1}.deb
@@ -101,10 +101,8 @@ pack() {
 			${project_root}/packages/a1gui/$1/$2/Applications/a1gui.app/
 		cp -r ${project_root}/src/gui/resources/* \
 			${project_root}/packages/a1gui/$1/$2/Applications/a1gui.app/
-		setlocale rootless "var/jb" "zh-CN"
-		setlocale rootless "" "zh-CN"
-		setlocale roothide "var/jb" "en-US"
-		setlocale rootless "" "en-US"
+		setlocale $1 $2 "zh-CN"
+		setlocale $1 $2 "en-US"
 		setdebinfo a1gui rootless "iphoneos-arm64"
 		setdebinfo a1gui roothide "iphoneos-arm64e"
 		dpkg-deb -b ${project_root}/packages/a1gui/$1 \
