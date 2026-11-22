@@ -79,12 +79,15 @@ pack() {
 		ln -sf bundle ${project_root}/packages/cxxa1/$1/$2/a1/bin/bundle_pid
 		ln -sf bundle ${project_root}/packages/cxxa1/$1/$2/a1/bin/pid_bundle
 		ln -sf flock ${project_root}/packages/cxxa1/$1/$2/a1/bin/flock-ios
-		if [ $1 = rootlful ]; then
+		if [ $1 = rootful ]; then
 			setdebinfo cxxa1 $1 "iphoneos-arm"
 		elif [ $1 = rootless ]; then
 			setdebinfo cxxa1 $1 "iphoneos-arm64"
 		elif [ $1 = roothide ]; then
 			setdebinfo cxxa1 $1 "iphoneos-arm64e"
+		else
+			echo "[Error]: unknown or not supported jailbreak type: $1" >&2
+			return 1
 		fi
 		dpkg-deb -b ${project_root}/packages/cxxa1/$1 \
 			${project_root}/packages/cxxa1/cxxa1-${1}.deb
@@ -108,12 +111,15 @@ pack() {
 		if [ $1 = rootless ] && [ "$2" = "var/jb" ]; then
 			setlocale $1 $2 "zh-CN"
 			setlocale $1 $2 "en-US"
+			setdebinfo a1gui rootless "iphoneos-arm64"
 		elif [ $1 = roothide ] && [ "$2" = "" ]; then
 			setlocale $1 "/" "zh-CN"
 			setlocale $1 "/" "en-US"
+			setdebinfo a1gui roothide "iphoneos-arm64e"
+		else
+			echo "[Error]: unknown or not supported jailbreak type: $1" >&2
+			return 1
 		fi
-		setdebinfo a1gui rootless "iphoneos-arm64"
-		setdebinfo a1gui roothide "iphoneos-arm64e"
 		dpkg-deb -b ${project_root}/packages/a1gui/$1 \
 			${project_root}/packages/a1gui/a1gui-${1}.deb
 		dpkg-name ${project_root}/packages/a1gui/a1gui-${1}.deb
@@ -127,8 +133,8 @@ pack() {
 		build_a1gui rootless "var/jb"
 		build_a1gui roothide ""
 	fi
-	rm -f cxx* a1gui
-	rm -f bundle myini flock
+	rm -f ${project_root}/cxx* ${project_root}/a1gui
+	rm -f ${project_root}/bundle ${project_root}/myini ${project_root}/flock
 }
 
 pack_a1() { pack "no-pack-a1gui" "$@"; }
