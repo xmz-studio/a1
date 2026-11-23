@@ -31,9 +31,10 @@ namespace a1ctl {
         if (!xmz::aux::is_file(g_jb.high_f)) xmz::fs::writefile(a1::coreapi::lists::high, g_jb.high_f);
         if (!xmz::aux::is_file(g_jb.low_f)) xmz::fs::writefile(a1::coreapi::lists::low, g_jb.low_f);
         if (!xmz::aux::is_file(g_jb.custom_f)) {
-            xmz::fs::writefile({"#custom priority format: process_name = value",
-                                "#value range: 0-99 (Jetsam 0 = Nice -20, Jetsam 39 = Nice 19)",
-                                "#example: com.apple.springboard = 0"}, g_jb.custom_f);
+            xmz::fs::writefile(R"(#custom priority format: process_name = value
+#value range: 0-99 (Jetsam 0 = Nice -20, Jetsam 39 = Nice 19)
+#example: com.apple.springboard = 0
+)", g_jb.custom_f);
         }
     }
 

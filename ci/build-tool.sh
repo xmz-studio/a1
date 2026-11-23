@@ -1,5 +1,4 @@
 #build-tool.sh
-set -x
 build_tool() {
     local script_path="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
     local CXXFLAGS2="-I.. -I../.. -I. -I../../cxxa1"

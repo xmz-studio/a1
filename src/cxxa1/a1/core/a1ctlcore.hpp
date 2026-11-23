@@ -88,9 +88,10 @@ namespace a1ctl {
             empty("low");
         } else if (opt == "custom" || opt == "c") {
             empty("custom");
-            xmz::fs::writefile({"#custom priority format: process_name = value",
-                                "#value range: 0-99 (Jetsam 0 = Nice -20, Jetsam 39 = Nice 19)",
-                                "#example: com.apple.springboard = 0"}, g_jb.custom_f);
+            xmz::fs::writefile(R"(#custom priority format: process_name = value
+#value range: 0-99 (Jetsam 0 = Nice -20, Jetsam 39 = Nice 19)
+#example: com.apple.springboard = 0
+)", g_jb.custom_f);
         } else {
             xmz::log::error("undefined options:", opt);
             return;

@@ -1,5 +1,4 @@
 #env.sh
-set -x
 if [ "$(dpkg --print-architecture)" = "iphoneos-arm64" ]; then
     jb="/var/jb"
 elif [ "$(dpkg --print-architecture)" = "iphoneos-arm64e" ]; then

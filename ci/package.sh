@@ -1,5 +1,4 @@
 #package.sh
-set -x
 pack() {
 	local script_path="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
 	local project_root=${script_path}/..
